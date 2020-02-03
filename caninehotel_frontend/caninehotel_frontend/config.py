@@ -1,0 +1,8 @@
+ENVIROMENT = 'DEVELOPMENT'
+PROTOCOL = 'http'
+
+if(ENVIROMENT == 'DEVELOPMENT'):
+	PORT = 8080
+	HOST = 'localhost'
+
+URL_SERVER = '{}://{}:{}'.format(PROTOCOL, HOST, PORT)

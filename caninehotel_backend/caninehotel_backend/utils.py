@@ -17,11 +17,11 @@ import_module_path = lambda module_path : import_module(module_path + '.' + MODU
 def register_rpc_operations(server, select_modules = None):
 
 	if not select_modules:
-		modules_imported = map(import_module_path, modules)
-	else:
-		modules_imported = map(register_rpc_operations, select_modules)
+		select_modules = modules
 
-	count_modules = len(modules)
+	modules_imported = map(register_rpc_operations, select_modules)
+
+	count_modules = len(select_modules)
 
 	print('cargando modulos ---> {}'.format(count_modules))
 

@@ -3,6 +3,6 @@ PROTOCOL = 'http'
 
 if(ENVIROMENT == 'DEVELOPMENT'):
 	PORT = 8080
-	HOST = 'localhost'
+	HOST = '192.168.152.2'
 
 URL_SERVER = '{}://{}:{}'.format(PROTOCOL, HOST, PORT)

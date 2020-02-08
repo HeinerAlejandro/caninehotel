@@ -1,24 +1,31 @@
 import xmlrpc.client
-from sciter.window import Window
 
 from caninehotel_frontend.config import(
 	URL_SERVER
 )
-
-client_stub = xmlrpc.client.ServerProxy(URL_SERVER)
+ 
+from caninehotel_frontend.operations import operations
 
 def main():
 
-	frame = Window(ismain = True, uni_theme = True)
+	with xmlrpc.client.ServerProxy(URL_SERVER, allow_none = True) as client_stub:
 
-	frame.load_file('./statics/html/index.html')
+		while True:
 
-	frame.expand ()
-	frame.run_app ()
-	"""print(client_stub.dog.add("algo"))
-	print(client_stub.dog.find("algo"))
-	print(client_stub.dog.modify("algo"))
-	print(client_stub.dog.delete("algo"))"""
+			print("seleccione la prueba a realizar: ")
+			print("1. Carga prediseñada de usuarios")
+			print("2. Carga prediseñada de perros")
+			print("3. Carga prediseñada de habitaciones")
+			print("4. Asignacion de cuarto")
+			print("5. Retiro del perro del hotel")
+
+			print("6. Obtener cantidad de cuartos ocupados")
+			print("7. Lista de mascotas albergadas y no.cuarto asignado")
+			print("8. Veces que se ha registrado una mascota")
+
+			option = input("opcion : ")
+
+			operations[int(option) - 1](client_stub)
 
 if __name__ == '__main__':
 	main()

@@ -16,7 +16,7 @@ from caninehotel_backend.database import connect_to_mongodb
 
 def main():
 	
-	with SimpleXMLRPCServer((HOST, PORT), requestHandler = RequestHandler) as server:
+	with SimpleXMLRPCServer((HOST, PORT), requestHandler = RequestHandler, allow_none = True) as server:
 
 		server.register_introspection_functions()
 
